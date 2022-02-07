@@ -151,7 +151,7 @@ $ aim runs cp [ARGS] [HASH] ...
 | `--destination <dest_repo_path>`  | Path to destination repo. __Required.__|
 
 ```shell
-$ aim runs cp [ARGS] [HASH] ...
+$ aim runs mv [ARGS] [HASH] ...
 ```
 
 | Args                              | Description                                               |
@@ -170,13 +170,13 @@ $ aim convert [ARGS] SUBCOMMAND
 | --------------------------------- | --------------------------------------------------------- |
 | `--repo <repo_path>`              | Path to parent directory of `.aim` repo. _Current working directory by default_ |
 
-**convert subcommands**
+__convert subcommands__
 
 | Sub-command | Description                    |
 |-------------|--------------------------------|
 | `tf`        | Convert from TensorFlow events |
 
-**Sub-command: tf**
+__Sub-command: tf__
 
 | Options       | Description                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------|
