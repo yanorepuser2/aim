@@ -139,9 +139,13 @@ class Client:
     def connect(self):
         endpoint = f'{self._http_protocol}{self._client_endpoint}/connect/{self.uri}/'
         response = requests.get(endpoint, headers=self.request_headers)
-        response_json = response.json()
-        if response.status_code != 200:
-            raise_exception(response_json.get('message'))
+        try:
+            response_json = response.json()
+            if response.status_code != 200:
+                raise_exception(response_json.get('message'))
+        except Exception:
+            raise RuntimeError(f'response status: {response.status_code}\n'
+                               f'response: {response.text}')
 
         return response
 
