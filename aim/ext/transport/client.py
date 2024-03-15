@@ -47,9 +47,9 @@ class Client:
             remote_path = remote_path[:-1]
         self._remote_path = remote_path
 
-        self._http_protocol = 'http://'
-        self._ws_protocol = 'ws://'
-        self.protocol_probe()
+        self._http_protocol = 'https://'
+        self._ws_protocol = 'wss://'
+        # self.protocol_probe()
 
         self._resource_pool = weakref.WeakValueDictionary()
 
@@ -139,13 +139,9 @@ class Client:
     def connect(self):
         endpoint = f'{self._http_protocol}{self._client_endpoint}/connect/{self.uri}/'
         response = requests.get(endpoint, headers=self.request_headers)
-        try:
-            response_json = response.json()
-            if response.status_code != 200:
-                raise_exception(response_json.get('message'))
-        except Exception:
-            raise RuntimeError(f'response status: {response.status_code}\n'
-                               f'response: {response.text}')
+        response_json = response.json()
+        if response.status_code != 200:
+            raise_exception(response_json.get('message'))
 
         return response
 
