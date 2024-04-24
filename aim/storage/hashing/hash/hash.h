@@ -1,6 +1,13 @@
 #include "Python.h"
 
 
+#if PY_MAJOR_VERSION < 3 || (PY_MAJOR_VERSION == 3 && PY_MINOR_VERSION < 12)
+    // Python version is older than 3.12
+#else
+    #include "pycore_pyhash.h"
+#endif
+
+
 #ifdef __cplusplus
     extern "C" {
 #endif
