@@ -7,7 +7,7 @@ echo "build python wheels"
 
 export PATH=/opt/python/${python_version}/bin:$PATH
 echo "build wheels for ${PYTHON_VERSION}"
-pip install build
+python -m pip install build
 python -m build
 pip install dist/*${python_version}*.whl
 pip install git+https://github.com/aimhubio/auditwheel.git@include-exclude
