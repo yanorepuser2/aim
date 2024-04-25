@@ -3,9 +3,8 @@ set -e
 
 cd /opt/aim
 
-echo "build python wheels"
-
 export PATH=/opt/python/${PYTHON_VERSION}/bin:$PATH
+python -m pip cache purge
 echo "build wheels for ${PYTHON_VERSION}"
 python -m pip install build
 python -m build
