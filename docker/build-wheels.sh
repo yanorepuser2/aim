@@ -9,7 +9,7 @@ echo "build wheels for ${PYTHON_VERSION}"
 python -m pip install build
 python -m build
 pip install dist/*${PYTHON_VERSION}*.whl
-pip install git+https://github.com/aimhubio/auditwheel.git@include-exclude
+pip install git+https://github.com/aimhubio/auditwheel.git@include-exclude-new
 export LIB_DIR=`python -c "from aimrocks import lib_utils; print(lib_utils.get_lib_dir())"`
 export LIBS_BUNDLED=`ls ${LIB_DIR}/ \
   | grep .so \
